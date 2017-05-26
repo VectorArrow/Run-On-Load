@@ -35,6 +35,13 @@ chrome.extension.onConnect.addListener(function (port) {
     // Listens to messages sent from the panel
     chrome.extension.onMessage.addListener(extensionListener);
 
+    // sends message to panel on page load
+    chrome.webNavigation.onDOMContentLoaded.addListener(function(details){
+    // chrome.tabs.executeScript(details.tabId, {code: "alert('Page Loaded')"});
+        message = {tabId: details.tabId, frameId: details.frameId, content: "Page Loaded Message"};
+        port.postMessage(message);
+    });
+
     port.onDisconnect.addListener(function(port) {
         chrome.extension.onMessage.removeListener(extensionListener);
     });

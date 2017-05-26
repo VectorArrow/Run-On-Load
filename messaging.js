@@ -16,10 +16,15 @@
 
     // Listen to messages from the background page
     port.onMessage.addListener(function (message) {
-      document.querySelector('#insertmessagebutton').innerHTML = message.content;
+     if (message.tabId == chrome.devtools.inspectedWindow.tabId && message.frameId == 0){
+        alert(message.content);
+        snippets = window.InspectorFrontendHost.getPreferences(_ => console.log(JSON.parse(_.scriptSnippets)));
+        for(i=0;i<resources.length;i++){
+            console.log(resources[i].name);
+        }
+    }
       // port.postMessage(message);
     });
-
 }());
 
 // This sends an object to the background page 

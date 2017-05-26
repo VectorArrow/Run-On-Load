@@ -1,6 +1,6 @@
 {
     "name": "RunOnLoad",
-    "version": "0.1",
+    "version": "0.2",
     "description": "Run an inspector snippet on pageload.",
     "devtools_page": "devtools.html",
     "background": {
