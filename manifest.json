@@ -1,7 +1,7 @@
 {
-    "name": "DevToolsPanel",
+    "name": "RunOnLoad",
     "version": "0.1",
-    "description": "A bare-bones example of communication between devtools and an inspected page",
+    "description": "Run an inspector snippet on pageload.",
     "devtools_page": "devtools.html",
     "background": {
         "scripts": [
